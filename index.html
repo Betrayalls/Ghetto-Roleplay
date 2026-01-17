@@ -5,48 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghetto Roleplay | MTA:SA</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">GHETTO <span>RP</span></div>
-        <ul>
-            <li><a href="#">Anasayfa</a></li>
-            <li><a href="#">Bloglar</a></li>
-            <li><a href="#">Yönetim Kadrosu</a></li>
-            <li><a href="#">Birimler</a></li>
-            <li><a href="#">Galeri</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h1>GHETTO ROLEPLAY</h1>
-            <p>“Sokakların Kanunu Burada Yazılır.”</p>
-            <div class="buttons">
-                <a href="#" class="btn-primary">Sunucuya Bağlan</a>
-                <a href="https://discord.gg/davetlinkiniz" target="_blank" class="btn-secondary">Discord'a Katıl</a>
-            </div>
+    <header>
+        <div class="container navbar">
+            <div class="logo">GHETTO <span>RP</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Anasayfa</a></li>
+                    <li><a href="#">Bloglar</a></li>
+                    <li><a href="#">Yönetim Kadrosu</a></li>
+                    <li><a href="#">Birimler</a></li>
+                    <li><a href="#">Galeri</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="main-content">
-        <div class="card">
-            <img src="https://via.placeholder.com/800x400/1a1a1a/e74c3c?text=Ghetto+Sokaklari" alt="Ghetto RP">
-            <div class="card-info">
-                <h3>Sokaklarda Yerini Al</h3>
-                <p>Gerçekçi ekonomi ve gelişmiş scriptler ile eşsiz bir deneyim.</p>
-                <a href="#" class="btn-card">Hemen İncele</a>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="glitch">GHETTO ROLEPLAY</h1>
+            <p>“Ready to Respond, Trained to Protect.” <br> (Hazırız, çünkü korumak için eğitildik.)</p>
+            <div class="hero-btns">
+                <a href="https://discord.com" class="btn-discord"><i class="fab fa-discord"></i> Discord'a Katıl</a>
             </div>
         </div>
     </section>
 
+    <section class="content-section">
+        <div class="container grid">
+            
+            <div class="nova-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1517404215738-15263e9f9178?auto=format&fit=crop&w=500&q=60" alt="Bloglar">
+                </div>
+                <div class="card-body">
+                    <h3>Bloglar</h3>
+                    <a href="#" class="card-link">İncele</a>
+                </div>
+            </div>
+
+            <div class="nova-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=60" alt="Birimler">
+                </div>
+                <div class="card-body">
+                    <h3>Birimler</h3>
+                    <a href="#" class="card-link">İncele</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Ghetto Roleplay | Tüm Hakları Saklıdır.</p>
-        <p class="agency-credit">
-            Bu Site <a href="https://betrayalls.github.io/Fortune/" target="_blank">Fortune Agency</a> Tarafından Yapılmıştır.
-        </p>
+        <div class="container">
+            <p>&copy; 2026 Ghetto Roleplay | Tüm Hakları Saklıdır.</p>
+            <div class="agency">
+                Bu Site <a href="https://betrayalls.github.io/Fortune/" target="_blank">**Fortune Agency**</a> Tarafından Yapılmıştır.
+            </div>
+        </div>
     </footer>
 
 </body>
