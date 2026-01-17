@@ -38,9 +38,12 @@ nav {
 /* Hero Bölümü */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.alphacoders.com/439/439546.jpg'); 
+    /* img klasöründeki ghettoana.png dosyasını çağırıyoruz */
+    /* linear-gradient resmin üzerine hafif bir siyah karartma ekler, böylece yazılar daha net okunur */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('img/ghettoana.png'); 
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Sayfa kaydırıldığında resmin sabit kalmasını sağlar (isteğe bağlı) */
     display: flex;
     flex-direction: column;
     justify-content: center;
