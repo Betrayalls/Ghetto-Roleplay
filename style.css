@@ -101,3 +101,55 @@ footer {
 }
 
 .agency-signature a:hover { text-shadow: 0 0 5px var(--primary-color); }
+
+/* Hero Alanını Karakterlere Göre Düzenle */
+.hero {
+    position: relative;
+    overflow: hidden; /* Karakterler taşmasın */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('img/ghettoana.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Karakterlerin Genel Ayarı */
+.char {
+    position: absolute;
+    bottom: 0;
+    height: 85%; /* Boyu sayfaya göre ayarlar */
+    transition: all 0.5s ease;
+    z-index: 1;
+    filter: brightness(0.7) grayscale(0.3); /* Başlangıçta biraz sönük ve gri tonlu */
+}
+
+.char img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Sol Karakter Konumu */
+.left-char {
+    left: -50px;
+}
+
+/* Sağ Karakter Konumu */
+.right-char {
+    right: -50px;
+}
+
+/* Üzerine Gelince Parlama ve Canlanma Efekti */
+.char:hover {
+    filter: brightness(1.2) drop-shadow(0 0 30px var(--primary-color)); /* Parlama efekti */
+    transform: scale(1.05); /* Hafif büyüme */
+    z-index: 2;
+}
+
+/* Orta Yazıların Karakterlerin Üstünde Kalması İçin */
+.hero-content {
+    z-index: 5;
+    text-align: center;
+}
+
