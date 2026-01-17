@@ -1,1 +1,179 @@
-{\rtf1}
+/* Genel Ayarlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0a0a; /* Çok koyu gri/siyah */
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Navigasyon */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #e74c3c;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav .logo span {
+    color: #e74c3c;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #e74c3c;
+}
+
+/* Hero Bölümü */
+.hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080/111/fff?text=GTA+SA+Wallpaper');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(231, 76, 60, 0.5);
+}
+
+/* Butonlar */
+.buttons {
+    margin-top: 25px;
+}
+
+.btn-primary, .btn-secondary, .btn-card {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+    margin: 10px;
+}
+
+.btn-primary {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #5865F2; /* Discord Mavisi */
+    color: white;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* İçerik Kartı */
+.main-content {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: #151515;
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-info {
+    padding: 30px;
+}
+
+.card-info h3 {
+    font-size: 28px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.btn-card {
+    background: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    margin-top: 20px;
+}
+
+.btn-card:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+/* Footer & Reklam Yazısı */
+footer {
+    padding: 40px 20px;
+    background: #000;
+    text-align: center;
+    border-top: 1px solid #222;
+    margin-top: 50px;
+}
+
+footer p {
+    color: #666;
+    font-size: 14px;
+}
+
+.agency-credit {
+    margin-top: 15px;
+    font-size: 13px !important;
+    color: #888 !important;
+}
+
+.agency-credit a {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.agency-credit a:hover {
+    text-decoration: underline;
+}
