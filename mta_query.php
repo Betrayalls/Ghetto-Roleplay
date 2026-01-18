@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 
 // --- BU ALANI BİLGİLER GELİNCE DÜZENLE ---
 $server_ip = "212.38.88.96"; // Sunucu IP adresi
-$query_port = 22003;           // Query Portu (Genelde Game Port + 123)
+$query_port = 22126;           // Query Portu (Genelde Game Port + 123)
 // ----------------------------------------
 
 function getMTAStatus($ip, $port) {
@@ -33,4 +33,5 @@ echo json_encode([
 ]);
 
 ?>
+
 
