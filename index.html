@@ -8,22 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
-<script>
-    window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    });
-</script>
 <body>
+
 <div id="preloader">
     <div class="loader-content">
         <div class="loader-logo">GHETTO ROLEPLAY</div>
         <div class="loader-bar"></div>
     </div>
 </div>  
+
     <nav>
         <div class="logo">GHETTO ROLEPLAY</div>
         <div class="nav-links">
@@ -41,7 +34,7 @@
 
         <div class="hero-content">
             <h1>GHETTO ROLEPLAY</h1>
-            <p>Sokakların Hikayesini Sen Yaz. MTA'nın En Sert Sosyal Ortamı.</p>
+            <p class="typewriter-text"><span id="typewriter"></span><span class="cursor">|</span></p>
             <br>
             <a href="mtasa://SUNUCU_IP" class="btn">SUNUCUYA BAĞLAN</a>
         </div>
@@ -71,6 +64,52 @@
             Bu Site <a href="https://betrayalls.github.io/Fortune/" target="_blank">Fortune Agency</a> Tarafından Yapılmıştır.
         </div>
     </footer>
+
+<script>
+    // 1. Preloader Kontrolü
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    });
+
+    // 2. Typewriter (Yazı Yazma) Efekti
+    const textElement = document.getElementById('typewriter');
+    const texts = [
+        "Sokakların Hikayesini Sen Yaz.",
+        "MTA'nın En Sert Sosyal Ortamı.",
+        "Adaletini Kendin Sağla.",
+        "Ghetto Dünyasına Adım At."
+    ];
+    let speed = 100;
+    let textIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < texts[textIndex].length) {
+            textElement.innerHTML += texts[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, speed);
+        } else {
+            setTimeout(erase, 2000);
+        }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            textElement.innerHTML = texts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, 50);
+        } else {
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(type, 500);
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', type);
+</script>
 
 </body>
 </html>
