@@ -57,8 +57,8 @@
             <h3>Adaletli Yönetim</h3>
             <p>7/24 Aktif Yetkili Kadrosu</p>
         </div>
-</section> 
     </section>
+
 <section class="live-table-section">
     <div class="server-table-container">
         <div class="table-header">
@@ -135,7 +135,45 @@
         }
     }
 
-    window.addEventListener('DOMContentLoaded', type);
+    // 3. MTA Canlı Veri Çekme Fonksiyonu
+    async function mtaCanliVeriCek() {
+        const tableBody = document.getElementById('mta-player-list');
+        const countElement = document.getElementById('mta-player-count');
+
+        try {
+            // query.php dosyasından veriyi çeker
+            const response = await fetch('mta_query.php');
+            const data = await response.json();
+
+            if (data.status === "online") {
+                countElement.innerText = data.player_count;
+                tableBody.innerHTML = ''; 
+
+                if (data.players.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Şu an sunucuda kimse yok.</td></tr>';
+                } else {
+                    data.players.forEach(player => {
+                        tableBody.innerHTML += `
+                            <tr>
+                                <td>${player.id}</td>
+                                <td>${player.name}</td>
+                                <td>${player.score}</td>
+                                <td>${player.ping}ms</td>
+                            </tr>`;
+                    });
+                }
+            }
+        } catch (error) {
+            // Veri çekilemezse (PHP dosyası yoksa veya port kapalıysa) hata gösterir
+            tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#e74c3c;">Sunucu bağlantısı bekleniyor (Port aktif değil).</td></tr>';
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        type(); // Yazı efektini başlat
+        mtaCanliVeriCek(); // İlk veri çekme
+        setInterval(mtaCanliVeriCek, 60000); // Her 60 saniyede bir güncelle
+    });
 </script>
 
 </body>
