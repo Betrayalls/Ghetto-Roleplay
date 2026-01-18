@@ -8,14 +8,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
-    <div id="preloader">
+<script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    });
+</script>
+<body>
+<div id="preloader">
     <div class="loader-content">
-        <div class="loader-logo">GHETTO ROLEPLAY</div>
+        <div class="loader-logo">GHETTO RP</div>
         <div class="loader-bar"></div>
     </div>
-</div>
-<body>
-
+</div>  
     <nav>
         <div class="logo">GHETTO ROLEPLAY</div>
         <div class="nav-links">
