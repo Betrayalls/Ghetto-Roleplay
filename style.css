@@ -125,12 +125,12 @@ nav {
     box-shadow: 0 0 25px var(--primary-color); 
 }
 
-/* --- Sunucu Durumu (Stats) --- */
+/* --- Hakkımızda (Stats) --- */
 .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 100px 10% 50px;
+    padding: 100px 10%;
     background: var(--dark-bg);
 }
 
@@ -149,88 +149,6 @@ nav {
 }
 
 .stat-card i { color: var(--primary-color); margin-bottom: 20px; }
-
-/* --- CANLI TABLO (Genişletilmiş Versiyon) --- */
-.live-table-section {
-    padding: 0 10% 100px;
-    background: var(--dark-bg);
-}
-
-.server-table-container {
-    background: var(--card-bg);
-    border-radius: 15px;
-    border: 1px solid #222;
-    padding: 40px;
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-
-.table-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 15px;
-}
-
-.live-indicator {
-    font-size: 0.8rem;
-    color: #888;
-    display: flex;
-    align-items: center;
-}
-
-.dot {
-    height: 8px;
-    width: 8px;
-    background-color: #2ecc71;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 8px;
-    animation: blink 1.5s infinite;
-}
-
-.server-info-bar {
-    display: flex;
-    gap: 50px;
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-    color: #ccc;
-}
-
-.player-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px;
-    margin-top: 10px;
-}
-
-.player-table th {
-    text-align: left;
-    padding: 15px 20px;
-    background: #111;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-}
-
-.player-table td {
-    padding: 18px 20px;
-    background: #1a1a1a;
-    font-size: 0.95rem;
-    color: #eee;
-}
-
-.player-table tr td:first-child { border-radius: 8px 0 0 8px; }
-.player-table tr td:last-child { border-radius: 0 8px 8px 0; }
-
-.player-table tr:hover td {
-    background: #222;
-    color: var(--primary-color);
-}
 
 /* --- Efektler & Animasyonlar --- */
 .particles {
