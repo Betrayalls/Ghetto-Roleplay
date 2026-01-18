@@ -24,30 +24,33 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    border-bottom: 1px solid #1a1a1a;
 }
 
-.logo { font-weight: bold; font-size: 24px; color: var(--primary-color); }
+.logo { font-weight: bold; font-size: 24px; color: var(--primary-color); letter-spacing: 1px; }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     margin-left: 20px;
     transition: 0.3s;
+    font-weight: 500;
 }
 
 .nav-links a:hover { color: var(--primary-color); }
 
 .download-nav {
     background: var(--primary-color);
-    padding: 8px 15px;
+    padding: 8px 20px !important;
     border-radius: 5px;
     font-weight: bold;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
 }
 
 /* --- Hero Bölümü & Karakterler --- */
@@ -71,9 +74,10 @@ nav {
 }
 
 .hero h1 { 
-    font-size: 4rem; 
+    font-size: 4.5rem; 
     margin-bottom: 10px; 
-    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9); 
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 1); 
+    letter-spacing: 3px;
 }
 
 /* Karakterlerin Ayarları */
@@ -81,9 +85,9 @@ nav {
     position: absolute;
     bottom: 0;
     height: 90%; 
-    transition: all 0.5s ease;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1;
-    filter: brightness(0.6) grayscale(0.2);
+    filter: brightness(0.5) grayscale(0.2);
 }
 
 .char img {
@@ -91,124 +95,138 @@ nav {
     object-fit: contain;
 }
 
-.left-char { left: 2%; }
-.right-char { right: 2%; }
+.left-char { left: 3%; }
+.right-char { right: 3%; }
 
 .char:hover {
     filter: brightness(1.1) drop-shadow(0 0 30px var(--primary-color));
-    transform: scale(1.03);
-    z-index: 2;
+    transform: scale(1.05);
+    z-index: 5;
 }
 
 /* Buton */
 .btn {
     background: var(--primary-color);
     color: white;
-    padding: 15px 35px;
+    padding: 15px 40px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     transition: 0.3s;
     display: inline-block;
     box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    margin-top: 20px;
 }
 
 .btn:hover { 
-    transform: scale(1.05); 
+    transform: translateY(-3px);
     box-shadow: 0 0 25px var(--primary-color); 
 }
 
 /* --- Sunucu Durumu (Stats) --- */
 .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 80px 10%;
+    padding: 100px 10%;
     background: var(--dark-bg);
 }
 
 .stat-card {
     background: var(--card-bg);
-    padding: 40px;
-    border-bottom: 4px solid var(--primary-color);
+    padding: 50px 30px;
+    border-bottom: 4px solid #222;
     text-align: center;
     transition: 0.3s;
+    border-radius: 10px;
 }
 
-.stat-card:hover { transform: translateY(-5px); }
-.stat-card i { color: var(--primary-color); margin-bottom: 15px; }
-
-/* --- İndirme Paneli (How to Play) --- */
-.download-section {
-    padding: 100px 10%;
-    background: #050505;
-    text-align: center;
+.stat-card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--primary-color);
 }
 
-.download-container {
+.stat-card i { color: var(--primary-color); margin-bottom: 20px; }
+
+/* --- İndirme Sayfası (indir.html) Özel Tasarımı --- */
+.download-page-container {
+    padding: 150px 10% 80px;
+    min-height: 90vh;
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 50px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
-.download-card {
+.download-header { text-align: center; margin-bottom: 50px; }
+.download-header h1 { font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
+
+.janti-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 950px;
+}
+
+.janti-card {
     background: #111;
-    padding: 45px 25px;
-    width: 280px;
-    border-radius: 12px;
     border: 1px solid #222;
-    position: relative;
+    padding: 25px 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
     transition: 0.4s;
 }
 
-.download-card:hover { 
-    border-color: var(--primary-color); 
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.janti-card:hover {
+    border-color: var(--primary-color);
+    background: #161616;
+    transform: translateX(15px);
 }
 
-.step-num {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary-color);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    line-height: 40px;
-    font-weight: bold;
-    box-shadow: 0 0 15px var(--primary-color);
+.janti-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    margin-right: 30px;
 }
 
-.dl-btn {
-    display: inline-block;
-    margin-top: 25px;
+.janti-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-right: 30px;
+    width: 50px;
+    text-align: center;
+}
+
+.janti-info { flex: 1; }
+.janti-info h3 { font-size: 1.4rem; margin-bottom: 5px; }
+.janti-info p { color: #777; font-size: 0.9rem; }
+
+.janti-btn {
+    padding: 10px 25px;
+    border: 2px solid var(--primary-color);
     color: white;
     text-decoration: none;
-    border: 2px solid var(--primary-color);
-    padding: 10px 25px;
     border-radius: 5px;
-    transition: 0.3s;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-.dl-btn:hover { background: var(--primary-color); }
+.janti-btn:hover { background: var(--primary-color); box-shadow: 0 0 15px var(--primary-color); }
 
 /* --- Footer & Fortune Agency --- */
 footer {
     background: #000;
     text-align: center;
-    padding: 50px 0;
+    padding: 60px 0;
     border-top: 1px solid #111;
 }
 
 .agency-signature {
     font-size: 0.9rem;
-    color: #666;
-    margin-top: 25px;
+    color: #555;
+    margin-top: 20px;
 }
 
 .agency-signature a {
