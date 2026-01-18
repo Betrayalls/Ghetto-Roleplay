@@ -37,15 +37,16 @@
             <h1>GHETTO ROLEPLAY</h1>
             <p class="typewriter-text"><span id="typewriter"></span><span class="cursor">|</span></p>
             <br>
-            <a href="mtasa://SUNUCU_IP" class="btn">SUNUCUYA BAĞLAN</a>
+            <a href="mtasa://212.38.88.96:22003" class="btn">SUNUCUYA BAĞLAN</a>
         </div>
     </header>
 
     <section class="stats" id="about">
         <div class="stat-card">
-            <i class="fas fa-users fa-3x"></i>
-            <h3>Aktif Oyuncu</h3>
-            <p>120 / 250</p>
+            <i class="fab fa-discord fa-3x"></i>
+            <h3>Discord Topluluğu</h3>
+            <p>Etkinlikler ve duyurular için bize katılın.</p>
+            <a href="https://discord.gg/TXD2pghx3n" target="_blank" class="btn" style="padding: 10px 20px; font-size: 0.8rem; margin-top: 15px;">KATIL</a>
         </div>
         <div class="stat-card">
             <i class="fas fa-code fa-3x"></i>
@@ -67,7 +68,7 @@
         </div>
         <div class="server-info-bar">
              <span><strong>OYUNCU:</strong> <span id="mta-player-count">0/250</span></span>
-             <span><strong>IP:</strong> 185.xxx.xxx.xxx</span>
+             <span><strong>IP:</strong> 212.38.88.96:22003</span>
         </div>
         <table class="player-table">
             <thead>
@@ -79,7 +80,7 @@
                 </tr>
             </thead>
             <tbody id="mta-player-list">
-                <tr><td colspan="4" style="text-align:center;">Veriler çekiliyor...</td></tr>
+                <tr><td colspan="4" style="text-align:center; padding: 40px;">Sunucu bağlantısı bekleniyor (Port aktif değil).</td></tr>
             </tbody>
         </table>
     </div>
@@ -141,22 +142,22 @@
         const countElement = document.getElementById('mta-player-count');
 
         try {
-            // query.php dosyasından veriyi çeker
-            const response = await fetch('mta_query.php');
+            // query.php dosyasından veriyi çeker (Cache engelleme eklendi)
+            const response = await fetch('mta_query.php?v=' + Date.now());
             const data = await response.json();
 
-            if (data.status === "online") {
+            if (data && data.status === "online") {
                 countElement.innerText = data.player_count;
                 tableBody.innerHTML = ''; 
 
-                if (data.players.length === 0) {
-                    tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Şu an sunucuda kimse yok.</td></tr>';
+                if (!data.players || data.players.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 30px;">Şu an sunucuda kimse yok.</td></tr>';
                 } else {
                     data.players.forEach(player => {
                         tableBody.innerHTML += `
                             <tr>
                                 <td>${player.id}</td>
-                                <td>${player.name}</td>
+                                <td style="color: #e74c3c; font-weight: bold;">${player.name}</td>
                                 <td>${player.score}</td>
                                 <td>${player.ping}ms</td>
                             </tr>`;
@@ -164,15 +165,15 @@
                 }
             }
         } catch (error) {
-            // Veri çekilemezse (PHP dosyası yoksa veya port kapalıysa) hata gösterir
-            tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#e74c3c;">Sunucu bağlantısı bekleniyor (Port aktif değil).</td></tr>';
+            // Hata durumunda mesajı koru
+            tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 40px; color:#e74c3c;">Sunucu bağlantısı bekleniyor (Port aktif değil).</td></tr>';
         }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-        type(); // Yazı efektini başlat
-        mtaCanliVeriCek(); // İlk veri çekme
-        setInterval(mtaCanliVeriCek, 60000); // Her 60 saniyede bir güncelle
+        type(); 
+        mtaCanliVeriCek(); 
+        setInterval(mtaCanliVeriCek, 45000); // 45 saniyede bir otomatik yenileme
     });
 </script>
 
