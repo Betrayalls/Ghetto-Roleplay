@@ -5,22 +5,30 @@
     --text-color: #ffffff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--dark-bg);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Navigasyon */
+/* --- Navigasyon --- */
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 10%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     position: fixed;
-    width: 80%;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
 
@@ -35,94 +43,47 @@ nav {
 
 .nav-links a:hover { color: var(--primary-color); }
 
-/* Hero Bölümü */
-.hero {
-    height: 100vh;
-    /* img klasöründeki ghettoana.png dosyasını çağırıyoruz */
-    /* linear-gradient resmin üzerine hafif bir siyah karartma ekler, böylece yazılar daha net okunur */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('img/ghettoana.png'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Sayfa kaydırıldığında resmin sabit kalmasını sağlar (isteğe bağlı) */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero h1 { font-size: 4rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(231, 76, 60, 0.5); }
-
-.btn {
+.download-nav {
     background: var(--primary-color);
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
+    padding: 8px 15px;
     border-radius: 5px;
     font-weight: bold;
-    transition: 0.3s;
 }
 
-.btn:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--primary-color); }
-
-/* Sunucu Durumu */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 50px 10%;
-}
-
-.stat-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-bottom: 3px solid var(--primary-color);
-    text-align: center;
-}
-
-/* Footer & İmza */
-footer {
-    background: #050505;
-    text-align: center;
-    padding: 40px 0;
-    margin-top: 50px;
-}
-
-.agency-signature {
-    font-size: 0.9rem;
-    color: #888;
-    margin-top: 20px;
-}
-
-.agency-signature a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.agency-signature a:hover { text-shadow: 0 0 5px var(--primary-color); }
-
-/* Hero Alanını Karakterlere Göre Düzenle */
+/* --- Hero Bölümü & Karakterler --- */
 .hero {
     position: relative;
-    overflow: hidden; /* Karakterler taşmasın */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('img/ghettoana.png');
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('img/ghettoana.png'); 
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
-/* Karakterlerin Genel Ayarı */
+.hero-content {
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.hero h1 { 
+    font-size: 4rem; 
+    margin-bottom: 10px; 
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9); 
+}
+
+/* Karakterlerin Ayarları */
 .char {
     position: absolute;
     bottom: 0;
-    height: 85%; /* Boyu sayfaya göre ayarlar */
+    height: 90%; 
     transition: all 0.5s ease;
     z-index: 1;
-    filter: brightness(0.7) grayscale(0.3); /* Başlangıçta biraz sönük ve gri tonlu */
+    filter: brightness(0.6) grayscale(0.2);
 }
 
 .char img {
@@ -130,26 +91,131 @@ footer {
     object-fit: contain;
 }
 
-/* Sol Karakter Konumu */
-.left-char {
-    left: -50px;
-}
+.left-char { left: 2%; }
+.right-char { right: 2%; }
 
-/* Sağ Karakter Konumu */
-.right-char {
-    right: -50px;
-}
-
-/* Üzerine Gelince Parlama ve Canlanma Efekti */
 .char:hover {
-    filter: brightness(1.2) drop-shadow(0 0 30px var(--primary-color)); /* Parlama efekti */
-    transform: scale(1.05); /* Hafif büyüme */
+    filter: brightness(1.1) drop-shadow(0 0 30px var(--primary-color));
+    transform: scale(1.03);
     z-index: 2;
 }
 
-/* Orta Yazıların Karakterlerin Üstünde Kalması İçin */
-.hero-content {
-    z-index: 5;
+/* Buton */
+.btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 25px var(--primary-color); 
+}
+
+/* --- Sunucu Durumu (Stats) --- */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 80px 10%;
+    background: var(--dark-bg);
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-bottom: 4px solid var(--primary-color);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+.stat-card i { color: var(--primary-color); margin-bottom: 15px; }
+
+/* --- İndirme Paneli (How to Play) --- */
+.download-section {
+    padding: 100px 10%;
+    background: #050505;
     text-align: center;
 }
 
+.download-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.download-card {
+    background: #111;
+    padding: 45px 25px;
+    width: 280px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    position: relative;
+    transition: 0.4s;
+}
+
+.download-card:hover { 
+    border-color: var(--primary-color); 
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.step-num {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    font-weight: bold;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.dl-btn {
+    display: inline-block;
+    margin-top: 25px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    padding: 10px 25px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.dl-btn:hover { background: var(--primary-color); }
+
+/* --- Footer & Fortune Agency --- */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 50px 0;
+    border-top: 1px solid #111;
+}
+
+.agency-signature {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 25px;
+}
+
+.agency-signature a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.agency-signature a:hover { text-shadow: 0 0 10px var(--primary-color); color: #fff; }
