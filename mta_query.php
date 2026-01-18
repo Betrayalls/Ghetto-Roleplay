@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 // --- BU ALANI BİLGİLER GELİNCE DÜZENLE ---
-$server_ip = "185.xxx.xxx.xxx"; // Sunucu IP adresi
+$server_ip = "212.38.88.96"; // Sunucu IP adresi
 $query_port = 22126;           // Query Portu (Genelde Game Port + 123)
 // ----------------------------------------
 
@@ -31,4 +31,5 @@ echo json_encode([
         // Burası sunucu aktif olduğunda otomatik dolacak
     ]
 ]);
+
 ?>
