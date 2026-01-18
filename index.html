@@ -60,32 +60,6 @@
         </div>
     </section>
 
-<section class="live-table-section">
-    <div class="server-table-container">
-        <div class="table-header">
-            <h2><i class="fas fa-signal"></i> SUNUCU CANLI TABLO</h2>
-            <div class="live-indicator"><span class="dot"></span> CANLI VERİ</div>
-        </div>
-        <div class="server-info-bar">
-             <span><strong>OYUNCU:</strong> <span id="mta-player-count">0/250</span></span>
-             <span><strong>IP:</strong> 212.38.88.96:22003</span>
-        </div>
-        <table class="player-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>IC İSİM (KARAKTER ADI)</th>
-                    <th>LEVEL / SKOR</th>
-                    <th>GECİKME (PING)</th>
-                </tr>
-            </thead>
-            <tbody id="mta-player-list">
-                <tr><td colspan="4" style="text-align:center; padding: 40px;">Sunucu bağlantısı bekleniyor (Port aktif değil).</td></tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-    
     <footer>
         <p>&copy; 2026 Ghetto Roleplay. Tüm Hakları Saklıdır.</p>
         <div class="agency-signature">
@@ -136,46 +110,8 @@
         }
     }
 
-    // 3. MTA Canlı Veri Çekme Fonksiyonu
-async function mtaCanliVeriCek() {
-    const tableBody = document.getElementById('mta-player-list');
-    const countElement = document.getElementById('mta-player-count');
-
-    try {
-        // Dosya yolunu kesinleştirmek için başına ./ ekledik
-        const response = await fetch('./mta_query.php?v=' + Date.now());
-        const data = await response.json();
-
-        if (data && data.status === "online") {
-            countElement.innerText = data.player_count;
-            tableBody.innerHTML = ''; 
-
-            if (data.players.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 20px;">Sunucu aktif fakat şu an kimse yok.</td></tr>';
-            } else {
-                data.players.forEach(player => {
-                    tableBody.innerHTML += `
-                        <tr>
-                            <td>${player.id}</td>
-                            <td style="color: #e74c3c; font-weight: bold;">${player.name}</td>
-                            <td>${player.score}</td>
-                            <td>${player.ping}ms</td>
-                        </tr>`;
-                });
-            }
-        } else {
-            throw new Error("Kapalı");
-        }
-    } catch (error) {
-        // Hata devam ediyorsa burası çalışır
-        tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 40px; color:#e74c3c;">Sunucu bağlantısı bekleniyor (Port veya VDS Firewall kapalı).</td></tr>';
-    }
-}
-
     window.addEventListener('DOMContentLoaded', () => {
         type(); 
-        mtaCanliVeriCek(); 
-        setInterval(mtaCanliVeriCek, 45000); // 45 saniyede bir otomatik yenileme
     });
 </script>
 
