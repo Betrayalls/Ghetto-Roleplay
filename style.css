@@ -315,3 +315,31 @@ footer {
 }
 
 .agency-signature a:hover { text-shadow: 0 0 10px var(--primary-color); color: #fff; }
+
+/* --- Typewriter (Yazı Yazma) Efekti --- */
+.typewriter-text {
+    font-size: 1.2rem;
+    color: #bbb;
+    min-height: 1.6em; /* Yazı silinince alanın daralmaması için */
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+#typewriter {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.cursor {
+    color: var(--primary-color);
+    font-weight: bold;
+    animation: blink 0.7s infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
