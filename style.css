@@ -343,3 +343,36 @@ footer {
     100% { opacity: 1; }
 }
 
+/* --- 5. Madde: Hareketli Parçacık Efekti --- */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(231, 76, 60, 0.05) 0%, transparent 80%),
+        url('https://www.transparenttextures.com/patterns/stardust.png'); /* Hafif toz zerresi dokusu */
+    animation: backgroundMove 20s linear infinite;
+    pointer-events: none; /* Mouse tıklamalarını engellememesi için */
+}
+
+/* Karakterlerin arkasında hafif bir duman/ışık sızıntısı */
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 40%;
+    background: radial-gradient(ellipse at bottom, rgba(231, 76, 60, 0.15) 0%, transparent 70%);
+    z-index: 1;
+    filter: blur(50px);
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 500px 1000px; }
+}
